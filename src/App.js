@@ -1,16 +1,17 @@
 import React from 'react';
 import Img from './components/Img';
 import Title from './components/Title';
-import ReactLink from './components/ReactLink';
+import NavBar from './components/NavBar';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">        
+      <header className="App-header"> 
+        <NavBar />
         <Img />
-        <Title text="Edit src/App.js and save to reload."/>
-        <ReactLink />
+        <Title text="Bienvenidos al e-commerce de RF 3D Lab."/>        
       </header>
     </div>
   );
