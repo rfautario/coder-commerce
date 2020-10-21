@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 
 function NavBar () {
     return <nav className="navbar navbar-toggleable-md navbar-light bg-light fixed-top navbar-expand-sm">
@@ -12,10 +13,10 @@ function NavBar () {
           <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/products">Impresoras</a>
+          <a className="nav-link" href="/impresoras">Impresoras</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/products">Filamentos</a>
+          <a className="nav-link" href="/filamentos">Filamentos</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/info">+ INFO</a>
@@ -26,6 +27,7 @@ function NavBar () {
         <button className="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
+  <CartWidget />
   </nav>
 }
 export default NavBar;
