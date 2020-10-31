@@ -12,9 +12,13 @@ function App() {
     <div className="App">
       <header className="App-header"> 
         <NavBar />
-        <Img />
-        <Title text="Bienvenidos a la tienda e-commerce de RF 3D Lab."/>        
-        <ItemListContainer />
+        <div className="content">
+          <Img />
+          <Title text="Bienvenidos a la tienda e-commerce de RF 3D Lab."/>
+          <div className="container">
+            <ItemListContainer />
+          </div>
+        </div>
       </header>
     </div>
   );
