@@ -14,14 +14,6 @@ const getItems = new Promise( (res, rej) => {
     }, 2000);
 });
 
-// const itemTask = new Promise((resolve, reject) => {
-//     // reject('Este es el mensaje de error');
-// });
-
-function onAdd( cantidad ) {
-    console.log(`Se agregaron ${cantidad} ítems al carrito`)
-}
-
 function ItemListContainer() {
     const [items, setItems] = useState([]);
     const [error, setError] = useState(null);
@@ -30,7 +22,6 @@ function ItemListContainer() {
         console.log('Initalized item list container');
 
         getItems.then(items => {
-            console.log(items);
             // guardan en un estado
             setItems(items);
         }, rejectMessage => {

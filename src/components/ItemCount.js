@@ -41,7 +41,7 @@ function ItemCount({ stock, initial, onAdd }) {
         borderRadius: 15,
         margin: 5,
         padding: 30,
-        minWidth: 450
+        minWidth: 150
     }
 
     return <div style={styleDiv}>
@@ -51,7 +51,7 @@ function ItemCount({ stock, initial, onAdd }) {
                     <FontAwesomeIcon icon={faMinus} />
                 </button>
             </div>
-            <input type="text" value={cantidad} placeholder="Ingrese cantidad del artículo" className="text-center form-control"/>            
+            <input type="text" value={cantidad} placeholder="Ingrese cantidad del artículo" className="text-center form-control" readOnly/>            
             <div style={style} className="input-group-append">
                 <button onClick={artAdd} className="w-100 btn btn-secondary">
                     <FontAwesomeIcon icon={faPlus} />
