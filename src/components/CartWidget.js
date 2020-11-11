@@ -10,7 +10,7 @@ let styleCart = {
 
 function CartWidget () {
     return <div className="text-dark pull-right" style={styleCart}>
-    <a href="/cart" title="Ir al carrito" style={{ color: 'white' }}>
+    <a href="/cart" title="Ir al carrito" style={{ color: 'black' }}>
       <FontAwesomeIcon icon={faShoppingCart} />
     </a>
   </div>

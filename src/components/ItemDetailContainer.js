@@ -13,7 +13,7 @@ function getItems (id){
                 price: 50000, 
                 pictureUrl: '01', 
                 description: 'La impresora 3d Creality Ender 3 v2, llega totalmente renovada, en cuanto a electrónica, chasis y muchas mejoras.\nEs la evolución de años de experiencia y de escuchar a la comunidad que es la que ha hecho la que la Ender 3 V2 sea una gran impresora.\nNo hay que hacer prácticamente nada más que montar, imprimir y disfrutar creando.',
-                stock: 3,
+                stock: 5,
                 categoryId: 'impresora'
             },
             { 
@@ -22,7 +22,7 @@ function getItems (id){
                 price: 45000, 
                 pictureUrl: '02', 
                 description: 'Tecnología de impresión: FDM\nVolumen de impresióN: 220x220x260\nResolución de capa: 100-400 micrones\nDiámetro de filamento: 1,75mm\nNozzle (PICO EXTRUSOR): 0,4mm\nelocidad máxima de impresión: 180 mm/s\nVarillas (x – y – z): De acero resistentes al desgaste tipo acme\nMotores: Nema 17\nSoftware: Propio del fabricante, Repetier-Host, Cura, SimpliFy3D\nFormato de archivos: STL\nPresición de impresión: +/- 0,1mm\nConectividad: SD\nTemp. máx. de cama: 100º\nTemp. máx. de extrusor: 250º\nPeso neto: 8,5 Kg',
-                stock: 3,
+                stock: 8,
                 categoryId: 'impresora'
             },            
             { 
@@ -40,7 +40,7 @@ function getItems (id){
                 price: 75000, 
                 pictureUrl: '04', 
                 description: 'Artillery Genius es una impresora 3D cartesiana todo en uno con controladores paso a paso ultra silenciosos, extrusora de accionamiento directo, doble eje Z, cama de vitrocerámica calentada por CA (superficie muy plana), pantalla táctil TFT y sensor de parada de proximidad magnética para proporcionar una larga vida útil y una impresión 3D precisa y silenciosa.',
-                stock: 3,
+                stock: 4,
                 categoryId: 'impresora'
             }            
         ];
