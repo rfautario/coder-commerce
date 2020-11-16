@@ -36,7 +36,7 @@ function ItemDetail({ item }) {
                     <Card.Text>Precio: $ {item[0].price.toLocaleString('es')}</Card.Text>
                     <Row  className="justify-content-md-center">
                         <Col md={4}>
-                        {/*!added && */ <ItemCount stock={item[0].stock} initial="1" onAdd={onAdd} />}
+                        {!added && <ItemCount stock={item[0].stock} initial="1" onAdd={onAdd} />}
                         {added && <Link to="/cart"><Button>Termina tu compra</Button></Link>}
                         {console.log(cart)}
                         </Col>
