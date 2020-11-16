@@ -2,6 +2,7 @@ import React from 'react';
 import Img from './components/Img';
 import Title from './components/Title';
 import NavBar from './components/NavBar';
+import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -33,7 +34,7 @@ function App() {
                 <p>Estoy en Categoría</p>
               </Route>
               <Route path="/cart">
-                <p>Estoy en Cart</p>
+                <Cart />
               </Route>
             </Switch>           
           </header>

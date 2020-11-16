@@ -14,7 +14,7 @@ let style = {
 
 function ItemDetail({ item }) {
     const [added, setAdded] = useState(false);
-    const { cart, addItem } = useCartContext();
+    const { addItem } = useCartContext();
 
     // Importar el CartContext ->
     function onAdd( cantidad ) {
@@ -38,7 +38,6 @@ function ItemDetail({ item }) {
                         <Col md={4}>
                         {!added && <ItemCount stock={item[0].stock} initial="1" onAdd={onAdd} />}
                         {added && <Link to="/cart"><Button>Termina tu compra</Button></Link>}
-                        {console.log(cart)}
                         </Col>
                         { /* <Toaster titulo={ cantidad, item[0].title } />*/ }
                     </Row>
