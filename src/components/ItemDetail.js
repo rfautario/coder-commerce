@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row, Toast } from 'react-bootstrap';
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../context/cartContext';
+// import { Toaster } from './Toaster';
 
 let style = {
     borderRadius: '50%',
@@ -12,6 +14,7 @@ let style = {
 
 function ItemDetail({ item }) {
     const [added, setAdded] = useState(false);
+    const { cart, addItem } = useCartContext();
 
     // Importar el CartContext ->
     function onAdd( cantidad ) {
@@ -19,6 +22,7 @@ function ItemDetail({ item }) {
 
         // Recibir la cantidad e implementar el onAdd
         setAdded(true);
+        addItem({ item: item[0], quantity: cantidad});
     }
 
     return <Row>
@@ -32,9 +36,11 @@ function ItemDetail({ item }) {
                     <Card.Text>Precio: $ {item[0].price.toLocaleString('es')}</Card.Text>
                     <Row  className="justify-content-md-center">
                         <Col md={4}>
-                        {!added && <ItemCount stock={item[0].stock} initial="1" onAdd={onAdd} />}
+                        {/*!added && */ <ItemCount stock={item[0].stock} initial="1" onAdd={onAdd} />}
                         {added && <Link to="/cart"><Button>Termina tu compra</Button></Link>}
+                        {console.log(cart)}
                         </Col>
+                        { /* <Toaster titulo={ cantidad, item[0].title } />*/ }
                     </Row>
                 </Card.Body>
             </Card>

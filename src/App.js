@@ -7,11 +7,11 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-//import CartProvider, { CartContext } from './context/cartContext';
+import CartProvider from './context/cartContext';
 
 function App() {
   return (<>
-    {/*<CartProvider defaultCart={[]}>*/}
+    <CartProvider defaultCart={[]}>
       <BrowserRouter>
         <NavBar />
         <div className="App">
@@ -39,7 +39,7 @@ function App() {
           </header>
         </div>
       </BrowserRouter>
-    {/*</CartProvider>*/}
+    </CartProvider>
     </>
   );
 }

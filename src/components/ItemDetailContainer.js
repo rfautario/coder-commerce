@@ -73,9 +73,6 @@ function ItemDetailContainer({ item }) {
     }, [id]);
     
     return <>
-    <h3>
-        Detail
-    </h3>
     <Container>{detail && <ItemDetail item={detail} />}</Container>
     {error && <p>{error}</p>}
     </>

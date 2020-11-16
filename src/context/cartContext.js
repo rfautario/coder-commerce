@@ -5,49 +5,59 @@ export const CartContext = React.createContext([]);
 export const useCartContext = () => useContext(CartContext);
 
 export default function CartProvider({ children, defaultCart }) {
-
-    return '';
-    /*
-    const [cart, setCart] = useState(defaultCart); // [item1, item2, item3]
+    const [cart, setCart] = useState(defaultCart);
+    const [cartSize, setCartSize] = useState(0);
     // Nuestro almacen de estado de compra
     // Funciona como nuestra propia API
 
-    function add(item) {
+    function addItem(item) {
         // Agrega el item y actualiza el estado
-        console.log('Trataste de agregar el item:', item.id);
-
+        //console.log('Trataste de agregar el item:', item.item.id);
+        console.log('Llega a addItem: ', item);
+        
         // Analizar cart y decidir si existe
-        const item = cart.find(); // buscar si existe
+        const existe = cart.find(i => i.item.id === item.item.id); // buscar si existe
 
-        if (item){
+        if (!existe && item){
             // agregar
+            console.log('Entra a agregar');
             setCart([...cart, item]);
+            setCartSize(cartSize + item.quantity);
         }else{
             // actualizar
-            item = {... item, quantity: nuevaCantidad };
-            setCart([...cart, item]);
+            console.log('Entra a actualizar');
+            const index = cart.findIndex(i => i.item.id === item.item.id);
+            
+            //Seteo la nueva cantidad agregada del item
+            setCartSize(cartSize - cart[index].quantity + Math.min(cart[index].item.stock, cart[index].quantity + item.quantity));
+            
+            //Modifico la cantidad que había en el carrito con lo agregado
+            cart[index] =  { item: item.item, quantity: Math.min(cart[index].item.stock, cart[index].quantity + item.quantity) };
+            setCart( cart );
         }
-
-        // Antes de terminar cada operación, actualizar el estado
     }
 
-    function remove(itemId) {
+    function removeItem(itemId) {
         // Remueve un item por id y actualiza el estado
         console.log('Trataste de remover el item:', itemId);
-        setCart(cart.filter( item => item.id !== itemId));
-
+        var cant = cart.find(i => i.item.id === itemId);
+        setCartSize(cartSize - parseInt(cant.quantity));
+        setCart(cart.filter( i => i.item.id !== itemId));
+        
         // Antes de terminar cada operación, actualizar el estado
     }
 
-    return <CartContext.Provider value={{ cart, add, remove }}>
+    function clear() {
+        setCart([]);
+        setCartSize(0);
+    }
+
+    return <CartContext.Provider value={{ 
+        cart,
+        addItem,
+        removeItem,
+        clear,
+        cartSize }}>
         { children }
     </CartContext.Provider>
-    */
 }
-
-
-/*
-<CartProvider defaultCart={[]}>
-    <Componente />
-</CartProvider>
-*/

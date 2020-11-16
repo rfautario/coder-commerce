@@ -2,11 +2,8 @@ import React from 'react';
 import CartWidget from './CartWidget';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
-import { useCartContext } from '../context/cartContext';
 
 function NavBar () {
-  //const { cart, add, remove } = useCartContext();
-
   const menus = [
     { id:'home', name: 'Home', url:''},
     { id:'impresoras', name: 'Impresoras', url:'/impresoras'},
@@ -17,7 +14,7 @@ function NavBar () {
   return <>
     <Navbar bg="light" >
       <Navbar.Brand href="/">
-        <Image src="logo192.png" rounded width="90"/>
+        <Image src="/logo192.png" rounded width="90"/>
       </Navbar.Brand>
       <Nav className="mr-auto">
         {
@@ -33,7 +30,6 @@ function NavBar () {
         <Button variant="outline-info">Buscar</Button>
       </Form>
       <CartWidget />
-      {/* cart.length */}
     </Navbar>
     </>
 }
