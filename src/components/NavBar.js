@@ -6,8 +6,8 @@ import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
 function NavBar () {
   const menus = [
     { id:'home', name: 'Home', url:''},
-    { id:'impresoras', name: 'Impresoras', url:'/impresoras'},
-    { id:'filamentos', name: 'Filamentos', url:'/filamentos'},
+    { id:'impresoras', name: 'Impresoras', url:'/category/impresora'},
+    { id:'filamentos', name: 'Filamentos', url:'/category/filamento'},
     { id:'info', name: '+ INFO', url:'/info'}
   ];
 

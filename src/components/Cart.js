@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function Cart () {
   const { cart, removeItem, clear, cartSize, subtotal } = useCartContext();
 
-    return <Card className="text-dark" style={{minWidth: 800 }}>
+    return <Card className="text-dark" style={{minWidth: 1000 }}>
         <Card.Header>Carrito</Card.Header>
         <Card.Body>
             {cartSize === 0 && <>
@@ -23,14 +23,16 @@ function Cart () {
                     <th width="50%">Producto</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
+                    <th>Subtotal</th>
                     <th></th>                    
                 </tr>
                 </thead>
                 <tbody>
                     {cart.map(item => (
                         <tr key={item.item.id}>
-                            <td>{item.item.title}</td>
+                            <td style={{textAlign: 'left'}}>{item.item.title}</td>
                             <td>{item.quantity }</td>
+                            <td>$ {item.item.price.toLocaleString('es')}</td>
                             <td>$ {(item.item.price * item.quantity).toLocaleString('es')}</td>
                             <td><Button variant="outline-danger" onClick={() => { removeItem(item.item.id) }} title="Borrar el item">
                                     <FontAwesomeIcon icon={faTimes} />

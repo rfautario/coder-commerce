@@ -10,14 +10,14 @@ let style = {
 }
 
 function Item({ item }) {
-    return <Col md={4} className="mb-1">
+    return <Col md={4} className="mb-1" style={{minWidth: '33.333333%'}}>
         <Link to={`/item/${item.id}`} style={{textDecoration: 'none'}} title={`Ver detalle de ${item.title}`}>
             <Card className="text-dark">
                 <Card.Header>
                 {item.title}
                 </Card.Header>
                 <Card.Body>
-                    <Card.Subtitle className="text-secondary">Impresora 3D #{item.id}</Card.Subtitle>
+                    <Card.Subtitle className="text-secondary">({item.categoryId})</Card.Subtitle>
                     <Card.Img variant="top" src={`../img/Product-${item.pictureUrl}-mini.jpg`} style={style}/>
                     <Card.Text>Precio: $ {item.price.toLocaleString('es')}</Card.Text>
                 </Card.Body>

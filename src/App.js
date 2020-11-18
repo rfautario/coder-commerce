@@ -31,10 +31,19 @@ function App() {
                 <ItemDetailContainer />
               </Route>
               <Route path="/category/:categoryid">
-                <p>Estoy en Categoría</p>
+                <div className="content">
+                  <Img />
+                  <Title text="Bienvenidos a la tienda e-commerce de RF 3D Lab."/>
+                  <div className="container">
+                    <ItemListContainer />
+                  </div>
+                </div>
               </Route>
               <Route path="/cart">
                 <Cart />
+              </Route>
+              <Route path="/info">
+                <p>Estoy en + INFO</p>
               </Route>
             </Switch>           
           </header>
