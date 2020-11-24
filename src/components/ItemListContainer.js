@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../firebase';
-// import ItemCount from './ItemCount';
 import ItemList from './ItemList';
 
 function ItemListContainer() {

@@ -1,12 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCartContext } from '../context/cartContext';
-import { Card, Button, Table } from 'react-bootstrap';
+import { Card, Button, Table, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
+import { getFirestore }  from '../firebase';
 
 function Cart () {
-  const { cart, removeItem, clear, cartSize, subtotal } = useCartContext();
+    const { cart, removeItem, clear, cartSize, subtotal } = useCartContext();
+    const [ checkout, setChekout ] = useState();
+
+    async function createOrder() {
+        const newOrder = {
+            buyer: { name: 'Rodrigo', phone: '+5491161181207', email: 'asd@asd.com'},
+            item: 
+                cart.map(i => ({ id: i.item.id, title: i.item.title, price: (i.item.price * i.quantity), quantity: i.quantity } ))
+            ,
+            date: firebase.firestore.FieldValue.serverTimestamp(),
+            total: subtotal
+        }
+        console.log('newOrder ',newOrder);
+
+        const db = getFirestore();
+
+        /*
+        const items = await db.collection('items').get();
+        
+        const itemQueryByManyId = await db.collection("items")
+        .where(firebase.firestore.FieldPath.documentId(),
+        'in', cart.map( c => c.item.id) )
+        .get();
+
+        debugger;
+
+        items.docs.map(d => ({ ...d.data(), id: d.id })).map(({ id, title, price, stock }) => ({ id, title, price, stock } ) );
+        */
+
+        const orders = db.collection('orders');
+
+        const itemsToUpdate = db.collection("items").where(firebase.firestore.FieldPath.documentId(), 'in', cart.map( i => i.item.id ));
+
+        const query = await itemsToUpdate.get();
+
+        try { 
+            const id = await orders.add(newOrder);
+            console.log('Order created with id: ', id);
+
+            const batch = db.batch();
+
+            query.docs.forEach((docSnapshot, idx) => {
+                batch.update(docSnapshot.ref, { stock: docSnapshot.data().stock - cart[idx].quantity });
+            });
+
+            await batch.commit();
+            clear();
+
+        } catch (err) {
+            console.log('Error creating order: ', err);
+        }
+    }
 
     return <Card className="text-dark" style={{minWidth: 1000 }}>
         <Card.Header>Carrito</Card.Header>
@@ -42,13 +96,20 @@ function Cart () {
                 </tbody>
             </Table>
             <Card.Text className="text-right mt-5 font-weight-bold">Total: $ {subtotal.toLocaleString('es')}</Card.Text>
-            <Button variant="outline-danger" className="mr-5" onClick={() => { clear() }} title="Borrar el item">
+            <Button variant="outline-danger" className="mr-5" onClick={() => { clear() }} title="Vaciar el carrito">
                                     Vaciar el carrito <FontAwesomeIcon icon={faTimes} />
                                 </Button>
             </>}
             <Link to="/">
                 <Button variant="secondary">Volver a inicio</Button>
             </Link>
+            {cartSize > 0 &&
+                <Row>
+                <Col>
+                    <Button variant="primary" onClick={createOrder} className="float-right">Crear Orden</Button>
+                </Col>
+            </Row>}
+            
         </Card.Body>
     </Card>
 }

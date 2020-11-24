@@ -50,6 +50,8 @@ export default function CartProvider({ children, defaultCart }) {
         setCart(cart.filter( i => i.item.id !== itemId));
         setSubtotal(subtotal - (removable.quantity * removable.item.price));
         // Antes de terminar cada operación, actualizar el estado
+
+        console.log('Así queda cart ', cart);
     }
 
     function clear() {
