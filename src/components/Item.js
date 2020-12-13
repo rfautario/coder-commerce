@@ -17,7 +17,7 @@ function Item({ item }) {
                 {item.title}
                 </Card.Header>
                 <Card.Body>
-                    <Card.Subtitle className="text-secondary">({item.categoryId})</Card.Subtitle>
+                    <Card.Subtitle className="text-secondary">({(item.stock === 0 ? 'NO ' : '')}quedan {item.stock} unidades)</Card.Subtitle>
                     <Card.Img variant="top" src={`../img/Product-${item.pictureUrl}-mini.jpg`} style={style}/>
                     <Card.Text>Precio: $ {item.price.toLocaleString('es')}</Card.Text>
                 </Card.Body>

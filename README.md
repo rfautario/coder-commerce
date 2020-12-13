@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bienvenidos a la tienda e-commerce de RF_3D_LAb
 
-## Available Scripts
+Esta aplicación fue desarrollada por **Rodrigo Fautario** para el curso de **React.js** de **CoderHouse**.
 
-In the project directory, you can run:
+## Instrucciones de instalación
+Se deben ejecutar los siguientes comandos para instalar el repositorio
 
-### `npm start`
+    npm install
+    
+    npm start
+El proyecto se iniciará en la siguiente URL [http://localhost:3000](http://localhost:3000)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Nota:** se da por supuesto que ya se encuentra instalado Node, React.JS y se clonó el repositorio desde GitHub
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Code styling
+* Todo el código en este proyecto fue desarollado usando camelCase
+* Se busca respetar los principios de optimización para implementar los principios KISS, DRY y YAGNI, como mínimo
 
-### `npm test`
+## Funcionalidades
+* Menú de navegabilidad con RouterLink.
+* Icono del carrito persistente en la barra del NavBar que indica la cantidad de ítems agregados al mismo mediante una burbuja en el mismo icono.
+* Filtro de items por tipo de categoría el cual es accesible desde el propio menú de cabecera
+* Listado de todos los items disponibles en Firebase Firestore. Los mismos indican detalles propios del producto, una imagen y el stock restante.
+* Un detalle del producto al navegar el mismo junto a la posibilidad de agregar X cantidad de productos al carrito (siempre y cuando haya stock del mismo).
+* Un carrito que incluye un desgloce de los productos agregados y cantidad de los mismos, como así también el cálculo del subtotal por producto y general.
+* Un formulario con los datos propios de la persona para finalizar la compra.
+* Notificaciones emergentes al agregar un producto y al finalizar la compra.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Se buscó brindarle al usuario una navegación fácil e intuitiva en todo el sitio.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dependencias
+Se utilizaron las siguientes dependencias:
+* bootstrap (v 4.5.3)
+* firebase (v 7.2.3)
+* react (v 16.13.1)
+* react-bootstrap (v 1.3.0)
+* react-dom (v 16.13.1)
+* react-fade-in (v 1.1.1)
+* react-router-dom (v 5.2.0)
+* react-scripts (v 3.4.4)
+* react-transition-group (v 4.4.1)
+* todo el paquete de Font Awesome y derivados (v 0.1.11)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Convenciones
 
-### `npm run eject`
+#### Testing
+Por favor incluir tests automatizados en cada commit
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Features especiales
+- Todas las notificaciones son emergentes y se muestran a través de Toast de '*react-bootstrap*'
+- Se buscó simplificar el código HTML de todo el sitio a través de '*react-bootstrap*'
+- Imágenes de productos y descripciones reales
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Extra
+El sitio fue inspirado en mi emprendimiento personal de impresiones 3D y venta de impresoras.
+Se puede visitar en mi perfil de Instagram [@RF_3D_LAB](https://www.instagram.com/rf_3d_lab).

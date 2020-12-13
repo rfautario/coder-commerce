@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from 'react-bootstrap';
 
 function ItemCount({ stock, initial, onAdd }) {
     const [cantidad, setCantidad] = useState(parseInt(initial));
@@ -47,18 +48,20 @@ function ItemCount({ stock, initial, onAdd }) {
     return <div style={styleDiv}>
         <div className="input-group" style={style} >
             <div style={style} className="input-group-prepend">
-                <button onClick={artMinus} className="w-100 btn btn-secondary">
+                <Button onClick={artMinus} className="w-100 btn btn-secondary">
                     <FontAwesomeIcon icon={faMinus} />
-                </button>
+                </Button>
             </div>
             <input type="text" value={cantidad} placeholder="Ingrese cantidad del artículo" className="text-center form-control" readOnly/>            
             <div style={style} className="input-group-append">
-                <button onClick={artAdd} className="w-100 btn btn-secondary">
-                    <FontAwesomeIcon icon={faPlus} />
-                </button>
+                <Button  onClick={artAdd} className="w-100 btn btn-secondary">
+                    <FontAwesomeIcon icon={faPlus} />  
+                </Button>
             </div>
         </div>
-        <button className="w-100 mt-1 btn btn-primary btn-block" onClick = { ( ) => onAdd(cantidad) }>Agregar al carrito</button>
+        <Button className="w-100 mt-1 btn btn-primary btn-block" onClick = { ( ) => onAdd(cantidad) }>
+            Agregar al carrito
+        </Button>
         <h5 style={style2} className="mt-1 mb-0">{mensaje}</h5>
     </div>
 }

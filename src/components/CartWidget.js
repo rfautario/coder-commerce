@@ -3,6 +3,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useCartContext } from '../context/cartContext';
 import { Badge } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 let styleCart = {
   //position: 'fixed',
@@ -20,10 +21,10 @@ function CartWidget () {
   const { cartSize } = useCartContext();
 
     return <div className="text-dark pull-right" style={styleCart}>
-    <a href="/cart" title="Ir al carrito" style={{ color: 'black' }}>
+    <Link to="/cart" title="Ir al carrito" style={{ color: 'black' }}>
       <FontAwesomeIcon icon={faShoppingCart} />
       {cartSize > 0 && <Badge variant="primary" style={ styleBadge }>{ cartSize }</Badge>}
-    </a>
+    </Link>
   </div>
 }
 export default CartWidget;

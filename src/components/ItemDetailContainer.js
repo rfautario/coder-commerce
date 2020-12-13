@@ -11,24 +11,11 @@ function ItemDetailContainer({ item }) {
 
 
     useEffect(() => {
-        console.log('Initalized item detail container');
         const db = getFirestore();
         const itemCollection = db.collection('items');
         const itemFiltered = itemCollection.doc(id);
 
-        /*
-        EJEMPLOS DE FILTROS
-        // Filtro por precio        
-        const pricedItems = itemCollection.where('price', '>', 49000);
-
-        // Filtro por categoria
-        // const catCollection = itemCollection.where('categoryId', '==', categoryId)
-
-        // Filtro concatenado
-        // const concatenado = itemCollection.where('categoryId', '==', categoryId).where('price', '>', 49000);
-        */
-       
-       itemFiltered.get().then(doc => {
+        itemFiltered.get().then(doc => {
             if (doc.size === 0) {
                 console.log('No results');
             }

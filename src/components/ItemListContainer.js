@@ -5,12 +5,11 @@ import { getFirestore } from '../firebase';
 import ItemList from './ItemList';
 
 function ItemListContainer() {
-    const [items, setItems] = useState([]);
-    const [error, setError] = useState(null);
+    const [ items, setItems ] = useState([]);
+    const [ error, setError ] = useState(null);
     const { categoryid } = useParams();
 
     useEffect(() => {
-        console.log('Initalized item list container');
         const db = getFirestore();
         const itemCollection = db.collection('items');
         let itemCollectionFiltered = itemCollection;
@@ -20,7 +19,7 @@ function ItemListContainer() {
 
         itemCollectionFiltered.get().then((querySnapshot) => {
             if (querySnapshot.size === 0) {
-                console.log('No results');
+                setError('No se encontraron resultados');
             }
             setItems(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
         }, rejectMessage => {
@@ -33,11 +32,10 @@ function ItemListContainer() {
 
     return <>
     <h3>
-        Catálogo de productos
+        { (categoryid !== undefined ? categoryid.charAt(0).toUpperCase() + categoryid.slice(1) : 'Catálogo de productos') }
     </h3>
-    <Container>{items && <ItemList items={items} />}</Container>
-    { /*<ItemCount stock="5" initial="2" onAdd={onAdd} />*/}
-    {error && <p>{error}</p>}
+    <Container>{ items && <ItemList items={items} /> }</Container>
+    { error && <p>{error}</p> }
     </>
 }
 export default ItemListContainer;

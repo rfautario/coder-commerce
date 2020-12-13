@@ -1,13 +1,13 @@
 import React from 'react';
 import CartWidget from './CartWidget';
 import { NavLink } from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button, Image } from 'react-bootstrap';
+import { Navbar, Nav, Image } from 'react-bootstrap';
 
 function NavBar () {
   const menus = [
-    { id:'home', name: 'Home', url:''},
-    { id:'impresoras', name: 'Impresoras', url:'/category/impresora'},
-    { id:'filamentos', name: 'Filamentos', url:'/category/filamento'},
+    { id:'home', name: 'Home', url:'/'},
+    { id:'impresoras', name: 'Impresoras', url:'/category/impresoras'},
+    { id:'filamentos', name: 'Filamentos', url:'/category/filamentos'},
     { id:'info', name: '+ INFO', url:'/info'}
   ];
 
@@ -25,10 +25,6 @@ function NavBar () {
           ))
         }
       </Nav>
-      <Form inline>
-        <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-        <Button variant="outline-info">Buscar</Button>
-      </Form>
       <CartWidget />
     </Navbar>
     </>
